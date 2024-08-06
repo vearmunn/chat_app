@@ -1,9 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:chat_app/utils/custom_dialog.dart';
 import 'package:flutter/material.dart';
 
+import '../services/auth/auth_service.dart';
 import '../utils/spacer.dart';
-import '../widgets/myButton.dart';
-import '../widgets/myTextfield.dart';
+import '../widgets/my_button.dart';
+import '../widgets/my_textfield.dart';
 
 class RegisterPage extends StatelessWidget {
   final void Function() onTap;
@@ -15,6 +17,16 @@ class RegisterPage extends StatelessWidget {
     super.key,
     required this.onTap,
   });
+
+  void register(context) async {
+    final authService = AuthService();
+    if (passwordController.text == cpasswordController.text) {
+      authService.register(
+          emailController.text, passwordController.text, context);
+    } else {
+      showCustomDialog('Password tidak sama!', context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +62,10 @@ class RegisterPage extends StatelessWidget {
               obscureText: true,
             ),
             verticalSpace(25),
-            const Mybutton(text: 'Register'),
+            Mybutton(
+              text: 'Register',
+              onTap: () => register(context),
+            ),
             verticalSpace(25),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

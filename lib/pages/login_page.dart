@@ -1,11 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:chat_app/auth/auth_service.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:chat_app/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chat_app/utils/spacer.dart';
-import 'package:chat_app/widgets/myButton.dart';
-import 'package:chat_app/widgets/myTextfield.dart';
+import 'package:chat_app/widgets/my_button.dart';
+import 'package:chat_app/widgets/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
   final void Function() onTap;
