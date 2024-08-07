@@ -103,11 +103,15 @@ class _ChatPageState extends State<ChatPage> {
                       return ChatBuble(
                         isSender: true,
                         message: chat['message'],
+                        userID: chat['senderID'],
+                        messageID: chat.id,
                       );
                     } else {
                       return ChatBuble(
                         isSender: false,
                         message: chat['message'],
+                        userID: chat['senderID'],
+                        messageID: chat.id,
                       );
                     }
                   },

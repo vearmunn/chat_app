@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
       ),
       drawer: const MyDrawer(),
       body: StreamBuilder(
-        stream: chatService.getUserStream(),
+        stream: chatService.getUsersStreamExcludingBlocked(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasError) {
             return Center(
